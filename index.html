@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <main id="app-container">
+        <div class="search-container">
+            <div class="logo-container">
+                <div class="logo-wraper">
+                    <img 
+                        src="./assets/logo-dark.png" 
+                        alt="cat face"
+                        class="main-logo"
+                        id="logo-light"
+                        data-theme="light"
+                    >
+                    <img
+                        src="./assets/logo-light.png"
+                        alt="cat face"
+                        class="main-logo"
+                        id="logo-dark"
+                        data-theme="dark"
+                    >
+                </div>
+            </div>
+            <div class="searchbar-container">
+                <form id="search-form" class="search-form" method="get">
+                    <div class="sub-wraper">
+                        <select name="search-engine" id="search-engine" class="search-engine left-rounded">
+                            <option value="qwant">Qwant</option>
+                            <option value="dorks">Dorks</option>
+                            <option value="chrome">Chrome</option>
+                            <option value="youtube">Youtube</option>
+                            <option value="ddgo">DuckDuckGo</option>
+                            <option value="tor">Tor</option>
+                            <option value="npm">NPM</option>
+                            <option value="wiki">Wiki</option>
+                            <option value="mdn">MDN</option>
+                        </select>
+                        <input
+                            type="text"
+                            class="searchbar right-rounded
+                            name="searchbar"
+                            id="searchbar"
+                            placeholder="Recherche ..."
+                            autofocus
+                        >
+                        <button type="submit" class="btn submit rounded sqr">
+                            <svg 
+                                xmlns="http://www.w3.org/2000/svg"
+                                version="1.1"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                xmlns:svgjs="http://svgjs.com/svgjs"
+                                width="25"
+                                height="25"
+                                x="0"
+                                y="0"
+                                viewBox="0 0 192.904 192.904"
+                                style="enable-background:new 0 0 512 512"
+                                xml:space="preserve"
+                                class=""
+                            >
+                                <g>
+                                    <path
+                                        d="m190.707 180.101-47.078-47.077c11.702-14.072 18.752-32.142 18.752-51.831C162.381 36.423 125.959 0 81.191 0 36.422 0 0 36.423 0 81.193c0 44.767 36.422 81.187 81.191 81.187 19.688 0 37.759-7.049 51.831-18.751l47.079 47.078a7.474 7.474 0 0 0 5.303 2.197 7.498 7.498 0 0 0 5.303-12.803zM15 81.193C15 44.694 44.693 15 81.191 15c36.497 0 66.189 29.694 66.189 66.193 0 36.496-29.692 66.187-66.189 66.187C44.693 147.38 15 117.689 15 81.193z"
+                                        class="icon-content"
+                                    ></path>
+                                </g>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="sub-wraper dorks-container hidden" id="dorks-container">
+                        <div class="filter-container dork-sub-container">
+                            <select 
+                                name="filter-type"
+                                id="filter-type"
+                                class="filter-type left-rounded"
+                            >
+                                <option value="">Filter</option>
+                                <option value="site">Site</option>
+                                <option value="intext">In Text</option>
+                                <option value="filetype">File type</option>
+                                <option value="intitle">In Title</option>
+                                <option value="allintitle">All In Title</option>
+                                <option value="inurl">In URL</option>
+                                <option value="after">After</option>
+                                <option value="before">Before</option>
+                                <option value="movie">Movie</option>
+                            </select>
+
+                            <input type="text" class="filter-value right-rounded" id="filter-value">
+
+                            <button type="menu" class="btn submit rounded sqr" id="add-filter-btn">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    version="1.1"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    xmlns:svgjs="http://svgjs.com/svgjs"
+                                    width="25"
+                                    height="25"
+                                    x="0"
+                                    y="0"
+                                    viewBox="0 0 426.667 426.667"
+                                    style="enable-background:new 0 0 512 512"
+                                    xml:space="preserve"
+                                    class=""
+                                >
+                                    <g>
+                                        <path
+                                            d="M405.332 192H234.668V21.332C234.668 9.559 225.109 0 213.332 0 201.559 0 192 9.559 192 21.332V192H21.332C9.559 192 0 201.559 0 213.332c0 11.777 9.559 21.336 21.332 21.336H192v170.664c0 11.777 9.559 21.336 21.332 21.336 11.777 0 21.336-9.559 21.336-21.336V234.668h170.664c11.777 0 21.336-9.559 21.336-21.336 0-11.773-9.559-21.332-21.336-21.332zm0 0"
+                                            fill="var(--text)"
+                                            class="">
+                                        </path>
+                                    </g>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script>
+        const resetForm = ()=>{
+            document.querySelector("#searchbar").value = "";
+            document.querySelector('#search-engine').value = "qwant";
+            document.querySelector('#filter-type').value = "";
+            document.querySelector('#filter-value').value = "";
+            document.querySelector('#dorks-container').setAttribute('class', "sub-wraper dorks-container hidden");
+        }
+        const handleFormSubmit = (e)=>{
+            e.preventDefault();
+            const query = encodeURI(document.querySelector("#searchbar").value);
+            let stmt;
+            switch (document.querySelector("#search-engine").value){
+                case "qwant":
+                    stmt = `https://www.qwant.com/?q=${query}`;
+                    break;
+                
+                case "chrome":
+                    stmt = `https://www.google.com/search?q=${query}`;
+                    break;
+
+                case "youtube":
+                    stmt = `https://www.youtube.com/results?search_query=${query}`;
+                    break;
+
+                case "ddgo":
+                    stmt = `https://duckduckgo.com/?q=${query}`;
+                    break;
+                
+                case "tor":
+                    stmt = `https://torsearch.com/search/?query=${query}`;
+                    break;
+
+                case "npm":
+                    stmt = `https://www.npmjs.com/search?q=${query}`;
+                    break;
+
+                case "wiki":
+                    stmt = `https://fr.wikipedia.org/w/index.php?search=${query}`;
+                    break;
+
+                case "mdn":
+                    stmt = `https://developer.mozilla.org/fr/search?q=${query}`;
+                    break;
+                case "dorks":
+                    stmt = `https://www.google.com/search?q=${query}`;
+                    break;
+
+                default:    
+                    stmt = `https://www.qwant.com/?q=${query}`;
+                    break;
+            }
+            window.location.href = stmt;
+            
+            resetForm();
+        }
+        const handleSelectChange = (e)=>{
+            let dorksElement = document.querySelector('#dorks-container');
+            if(e.target.value == "dorks"){
+                dorksElement.setAttribute('class', "sub-wraper dorks-container");
+            }else{
+                dorksElement.setAttribute('class', "sub-wraper dorks-container hidden");
+            }
+            document.querySelector('#searchbar').focus();
+        }
+        const addDorkFilter = (e)=>{
+            e.preventDefault();
+            let filterType = document.querySelector('#filter-type');
+            let filterValue = document.querySelector('#filter-value');
+            if(filterType.value == "") return filterType.focus();
+            let param = filterType.value+":"+filterValue.value;
+            let searchQuery = document.querySelector("#searchbar") ;
+            if(searchQuery.value == "") searchQuery.value = param;
+            else searchQuery.value += " "+param;
+            filterType.value = "";
+            filterValue.value = "";
+        }
+        
+        resetForm();
+        document
+        .querySelector("#search-form")
+        .addEventListener('submit', handleFormSubmit, true);
+        document
+        .querySelector("#search-engine")
+        .addEventListener('change', handleSelectChange, true);
+        document
+        .querySelector('#add-filter-btn')
+        .addEventListener('click', addDorkFilter, true);
+        document
+        .querySelector('#filter-value')
+        .addEventListener('keydown', (e)=>{
+            const key = e.key;
+            if(key==="Enter"){
+                addDorkFilter(e);
+            }
+        })
+    </script>
+</body>
+</html>

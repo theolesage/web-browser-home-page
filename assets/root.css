@@ -1,0 +1,47 @@
+:root{
+    --tp: 0.25;
+
+    --primary-color-light: hsl(0, 0%, 97%);
+    --primary-color-light-dimmed: hsl(278, 24%, 91%);
+    --tp-primary-color-light-dimmed: hsla(278, 24%, 91%, var(--tp));
+    --secondary-color-light: hsl(290, 86%, 14%);
+    --accent-color-light: hsl(19, 90%, 61%);
+    --primary-color-dark: hsl(258, 12%, 17%);
+    --primary-color-dark-dimmed: hsl(257, 11%, 25%);
+    --tp-primary-color-dark-dimmed: hsla(257, 11%, 25%, var(--tp));
+    --secondary-color-dark: hsl(0, 0%, 89%);
+    --accent-color-dark: #2b78b8;
+
+    --background: var(--primary-color-light);
+    --background-dimmed: var(--primary-color-light-dimmed);
+    --tp-background-dimmed: var(--tp-primary-color-light-dimmed);
+    --text: var(--secondary-color-light);
+    --accent: var(--accent-color-light);
+}
+
+*[data-theme="dark"]{
+    display: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+@media (prefers-color-scheme: dark){
+    :root{
+        --background: var(--primary-color-dark);
+        --background-dimmed: var(--primary-color-dark-dimmed);
+        --tp-background-dimmed: var(--tp-primary-color-dark-dimmed);
+        --text: var(--secondary-color-dark);
+        --accent: var(--accent-color-dark);
+    }
+
+    *[data-theme="light"]{
+        display: none;
+        user-select: none;
+        pointer-events: none;
+    }
+    *[data-theme="dark"]{
+        display: initial;
+        user-select: all;
+        pointer-events: all;
+    }
+}

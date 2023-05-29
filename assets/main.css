@@ -1,0 +1,62 @@
+#app-container{
+    min-height: 80dvh;
+    min-height: 80vh;
+    display: grid;
+    place-items: center;
+}
+
+.search-container{
+    display: grid;
+    place-items: center;
+    grid-auto-flow: row;
+    grid-auto-rows: auto;
+}
+
+.main-logo{
+   height: 18rem;
+}
+
+.search-form{
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-rows: auto;
+    place-items: center;
+    row-gap: 1rem;
+}
+
+.sub-wraper{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.search-engine, .filter-type{
+    max-width: 6rem;
+    padding-right: 1rem;
+}
+
+.searchbar, .filter-value{
+    min-width: 25rem;
+}
+
+.btn.submit{
+    margin-left: .5rem;
+}
+
+.icon-content{
+    fill: var(--text);
+}
+
+.dorks-container{
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-rows: auto;
+    row-gap: 1rem;
+}
+
+.dork-sub-container{
+    display: flex;
+}
+
+.dork-searchbar{
+    width: 31rem;
+}
